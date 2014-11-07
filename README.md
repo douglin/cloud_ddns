@@ -81,7 +81,6 @@ For example:
 
 2. Add PEERDNS=”no” to /etc/sysconfig/network-scripts/ifcfg-eth0
 Add a line, PERRDNS=”no”, to ifcfg-eth0.  For example, type:
-
-  echo "PEERDNS=no" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+    echo "PEERDNS=no" >> /etc/sysconfig/network-scripts/ifcfg-eth0
 
 
