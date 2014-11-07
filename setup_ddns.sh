@@ -1,8 +1,14 @@
 #!/bin/sh
 #
+# Auto-generated BIND files will temporarily be put here
 if [ ! -d "gen4bind" ]; then
   mkdir gen4bind
 fi	
+#
+# Generate a secure key that will be used by the DNS
+if [ ! -f Kcloud.ddns.filename ]; then
+  dnssec-keygen -r /dev/urandom -a HMAC-MD5 -b 512 -n HOST cloud.ddns > Kcloud.ddns.filename
+fi
 #
 # create bind server zone files and resolv.conf
 python gen_bind_files.py

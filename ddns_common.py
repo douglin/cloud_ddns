@@ -91,3 +91,15 @@ def reverse_dns_zone(ipv4_net):
 
 def file_suffix(net):
     return net.split('/',2)[0]
+
+def get_ddns_key():
+    try:
+        f = open('Kcloud.ddns.filename', 'r')
+    except:
+        print ("Missing key file, run setup_ddns.sh")
+        sys.exit()
+
+    key_file = str(f.read())[:-1] + ".private"  # "[:-1] removes training end-of-line                        
+    f.close()
+    key_parms =parms(key_file)
+    return key_parms.value('Key')

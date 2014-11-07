@@ -7,7 +7,6 @@ from netaddr import all_matching_cidrs
 import novaclient.v1_1.client as novaclient
 from ddns_common import get_nova_creds
 from ddns_common import valid_hostname
-from ddns_common import reverse_ip_address
 from ddns_common import reverse_dns_zone
 from ddns_common import file_suffix
 from ddns_common import parms

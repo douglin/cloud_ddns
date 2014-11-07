@@ -3,13 +3,12 @@ import os   # miscellaneous operating system interfaces
 import sys  # system paramteters
 from ddns_common import parms
 from ddns_common import file_suffix
-
+from ddns_common import get_ddns_key
 
 # initialize template/dictionary variables
 mappings = parms('ddns_config.yaml')
-key_file = parms(mappings.value('key_file'))
-key_name = mappings.value('key_name')
-key_value = key_file.value('Key')
+key_name = 'cloud.ddns'
+key_value = get_ddns_key()
 
 text =  "source ./openrc.sh\n"
 text += "python ddns.py\n"

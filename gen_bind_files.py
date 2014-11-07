@@ -7,6 +7,7 @@ from ddns_common import parms
 from ddns_common import file_suffix
 from ddns_common import reverse_dns_zone
 from ddns_common import content
+from ddns_common import get_ddns_key
 
 def revzone_filename(net):
     return "reverse.cloudzone.%s" % file_suffix(net)
@@ -15,8 +16,8 @@ def main():
 
     # initialize mappings for the replacement fields in the templates
     mappings = parms('ddns_config.yaml')
-    key_parms = parms(mappings.value('key_file'))
-    mappings.add('secret_key', key_parms.value('Key'))
+    mappings.add('key_name', 'cloud.ddns')
+    mappings.add('secret_key', get_ddns_key())
 
     # initialize content
     named = content('templates/template.named.conf')
