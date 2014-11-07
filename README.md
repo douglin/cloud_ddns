@@ -39,19 +39,7 @@ For example,
   [centos@ddns ~]$ unzip /tmp/ddns.zip
 
 6. Setup ddns_config.yaml
-  “ddns_config.yaml” has all of the configuration parameters that will be used to configure BIND and the “DDNS” scripts. Edit this file and input customized information. Then save the file.  It is important to make sure there are no errors, like no over lapping IP ranges in this file. Here is a sample listing of the file. 
-
-domain_name: cloud.myuniverse.org
-dns_shortname: bigbang
-dns_fixed_ip: 10.130.52.121
-dns_floating_ip: 10.130.56.248
-forwarders:
-  - 10.130.0.1
-key_name: cloud.myuniverse.com
-key_file: Kcloud.myuniverse.com.+157+41426.private
-ip_ranges:
-  - 10.130.52.0/24
-  - 10.130.56.0/24
+  “ddns_config.yaml” has all of the configuration parameters that will be used to configure BIND and the “DDNS” scripts. Edit this file and input customized information. Then save the file.  It is important to make sure there are no errors, like no over lapping IP ranges in this file. 
 
 6. Run setup_ddns.sh to complete the DNS setup
 setup_ddns.sh creates configuration files for the DNS updates as well as configuration files for BIND. It then moves the BIND files to the appropriate directories and restart the DNS (“named”) service.  Feel free to view the script to see what it does. Run this script using “sudo”. 
