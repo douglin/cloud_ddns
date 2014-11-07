@@ -77,12 +77,8 @@ Now the main executable script, ddns.sh, has been created. It will use the OpenS
 
 7. Add ddnn.sh to cron to update the DNS automatically
 The following example shows how to setup cron to call ddns.sh every minute.
-
   [centos@ddns ~]$ crontab –e  
-
-Once in the file, add  “* * * * * <path-to-script>”.
-
-To monitor if the cron is working monitor /var/log/messages with “tail –f /var/log/messages”. Use ping and dig or nslookup to test the name server. 
+Once in the file, add  “* * * * * <path-to-script>”. To monitor if the cron is working monitor /var/log/messages with “tail –f /var/log/messages”.
 
 8. Test the DNS Server
 Use ping and dig or nslookup to test the DNS server
