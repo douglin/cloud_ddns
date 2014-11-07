@@ -8,7 +8,7 @@ Setup a custom dynamic DNS for instances in an OpenStack cloud
 SUMMARY of DDNS scripts
 The “ddns” set of scripts allow one to create a dynamic DNS for OpenStack cloud instances. Cloud providers may default to using unique and long hostnames, like instance.ff0f61549f3c4c6cb72a64f16572a524.compute.subdomain.domain.com.
 
-One might prefer to use easier to remember hostnames, like instance.subdomain.domain.com. The “ddns” set of scripts allows one to use simpler hostnames. A cloud admin can use these scripts to to set this up a hostname scheme and dynamic DNS for all users in an OpenStack cloud. 
+One might prefer to use easier to remember hostnames, like instance.subdomain.domain.com. The “ddns” set of scripts allows one to use simpler hostnames. A cloud admin can use these scripts to to set this up a hostname scheme and dynamic DNS for users in an OpenStack cloud. 
 
 This solution includes the following:
 
