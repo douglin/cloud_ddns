@@ -86,8 +86,8 @@ Use ping and dig or nslookup to test the DNS server
 PART 2 - HOW TO CONNECT INSTANCES
 An instance needs to be configured to resolve using the new DNS. The easiest way to do this is to configure the image(s). In the image, change /etc/resolv.conf and /etc/sysconfig/network-scripts/ifcfg-eth0 as described below. These changes can also be done for an individual instance. 
 
-Edit /etc/resolv.conf
-1. First, change the contents of resolv.conf as follows. The “nameserver_ip” can be either the fixed or floating IP of the DNS instance.
+1. Edit /etc/resolv.conf
+First, change the contents of resolv.conf as follows. The “nameserver_ip” can be either the fixed or floating IP of the DNS instance.
   search <domain_name>
   nameserver <nameserver_ip>
 
