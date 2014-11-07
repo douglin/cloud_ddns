@@ -26,7 +26,6 @@ This solution includes the following:
         o	ddns.sh, named.conf, forward and reverse zone files
 
 PRE-REQUISITES
-1. Pre-Requisites for the DNS Instance
     1.	Deploy a Centos/RHEL 6.5 instance for the DNS. It should be sufficient to choose a smaller flavor like “n1.small”.
     2.	Add a Floating IP
     3.	Setup security group rules for the DNS instance. The following ports should be open: TCP 22 (SSH), TCP 53 and UDP 53 (for DNS). 
