@@ -56,13 +56,11 @@ The following example will update cron to call ddns.sh every minute.
 
   [centos@ddns ~]$ crontab –e  
 
-Once in the file, add  “* * * * * <path-to-script>”. For example:
-  * * * * * /home/centos/ddns.sh
+Once in the file, add  “* * * * * <path-to-script>”.
 
-To monitor if the cron is working monitor /var/log/messages with:
-  “tail –f /var/log/messages”
+To monitor if the cron is working monitor /var/log/messages with “tail –f /var/log/messages”
 
-8. Test the DNS server
+9. Test the DNS server
 Use ping and dig or nslookup to test the name server. 
 
 
