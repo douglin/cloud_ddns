@@ -53,10 +53,7 @@ For example,
   [centos@ddns ~]$ unzip /tmp/ddns.zip
 
 4. Setup ddns_config.yaml
-  “ddns_config.yaml” has all of the configuration parameters that will be used to configure BIND and the “DDNS” scripts. Edit this file and input customized information. Then save the file.  It is important to make sure there are no errors, like no over lapping IP ranges in this file. 
-
-Note that all fields can take only one value with the exception of “forwarders” and “ip_ranges”. Multiple forwarders and IP address ranges can be included. The IP address ranges are for both the fixed and floating OpenStack networks. These scripts require that the ranges be on octet boundaries, e.g. /24, /16 or /8.
-
+The “ddns_config.yaml” file has all of the configuration parameters that will be used to configure BIND and the “DDNS” scripts. Edit this file and input customized information. Then save the file.  It is important to make sure there are no errors, like no over lapping IP ranges in this file. Note that all fields can take only one value with the exception of “forwarders” and “ip_ranges”. Multiple forwarders and IP address ranges can be included. The IP address ranges are for both the fixed and floating OpenStack networks. These scripts require that the ranges be on octet boundaries, e.g. /24, /16 or /8.
 Here is an already filled in sample of the required fields.
 
     domain_name: cloud.myuniverse.org
