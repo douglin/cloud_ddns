@@ -1,5 +1,9 @@
 #!/bin/sh
 #
+if [ ! -d "gen4bind" ]; then
+  mkdir gen4bind
+fi	
+#
 # create bind server zone files and resolv.conf
 python gen_bind_files.py
 #
