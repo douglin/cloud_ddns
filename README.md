@@ -57,7 +57,6 @@ The following example will update cron to call ddns.sh every minute.
   [centos@ddns ~]$ crontab –e  
 
 Once in the file, add  “* * * * * <path-to-script>”. For example:
-
   * * * * * /home/centos/ddns.sh
 
 To monitor if the cron is working monitor /var/log/messages with:
@@ -70,17 +69,15 @@ Use ping and dig or nslookup to test the name server.
 Part 2. Connecting Instances to the DNS
 An instance needs to be configured to resolve using the new DNS. The easiest way to do this is to configure the image(s). In the image, change /etc/resolv.conf and /etc/sysconfig/network-scripts/ifcfg-eth0 as described below. These changes can also be done for an individual instance. 
 
-1. Edit /etc/resolv.conf
+Edit /etc/resolv.conf
   First, change resolv.conf as follows. The “nameserver_ip” can be either the fixed or floating IP of the DNS instance.
   search <domain_name>
   nameserver <nameserver_ip>
-
 For example:
   search cloud.mycompany.com
   nameserver 10.130.52.121
 
-2. Add PEERDNS=”no” to /etc/sysconfig/network-scripts/ifcfg-eth0
-Add a line, PERRDNS=”no”, to ifcfg-eth0.  For example, type:
+Add PEERDNS=”no” to /etc/sysconfig/network-scripts/ifcfg-eth0.For example, type:
     echo "PEERDNS=no" >> /etc/sysconfig/network-scripts/ifcfg-eth0
 
 
