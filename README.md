@@ -58,10 +58,7 @@ The following example will update cron to call ddns.sh every minute.
 
 Once in the file, add  “* * * * * <path-to-script>”.
 
-To monitor if the cron is working monitor /var/log/messages with “tail –f /var/log/messages”
-
-9. Test the DNS server
-Use ping and dig or nslookup to test the name server. 
+To monitor if the cron is working monitor /var/log/messages with “tail –f /var/log/messages”. Use ping and dig or nslookup to test the name server. 
 
 
 Part 2. Connecting Instances to the DNS
