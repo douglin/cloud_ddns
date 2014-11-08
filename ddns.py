@@ -32,7 +32,7 @@ def main():
     # initialize content for forward and reverse nsupdate files
     update_count = {}
     content_A_Records = "server %s\n" % dns_name
-    update_count['A_Records'] = 0
+    update_count['A_Records'] = 1
 
     content_PTR = {} 
     for net in mappings.value('ip_ranges'):
@@ -40,7 +40,7 @@ def main():
         text = "server %s\n" % dns_name
         text += "zone %s\n" % revzone
         content_PTR[net] = text
-        update_count[net] = 0
+        update_count[net] = 1
 
     server_list = [] # used to check for duplidate server names
     # update nspdate files for each existing server
