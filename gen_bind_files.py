@@ -6,8 +6,31 @@ import netaddr
 from ddns_common import parms
 from ddns_common import file_suffix
 from ddns_common import reverse_dns_zone
-from ddns_common import content
 from ddns_common import get_ddns_key
+
+class content():
+
+    def __init__(self, filename):
+        try:
+            f = open(filename, 'r')
+            self.text = f.read()
+        except:
+            print "ERROR: reading %s" % filename
+        f.close()
+
+    def replace_fields(self, mappings):
+        self.text = self.text.format(**mappings.dict)
+
+    def append(self, add_text):
+        self.text += add_text
+
+    def write(self, filename):
+        try:
+            f = open(filename, 'w')
+            f.write(self.text)
+        except:
+            print "ERROR: writing to %s" % filename
+        f.close()
 
 def revzone_filename(net):
     return "reverse.cloudzone.%s" % file_suffix(net)

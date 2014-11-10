@@ -35,31 +35,6 @@ class parms():
     def value(self, key):
 	return self.dict[key]
 
-class content():
-        
-    def __init__(self, filename):
-        try:
-            f = open(filename, 'r')
-            self.text = f.read()
-        except:
-            print "ERROR: reading %s" % filename
-        f.close()
-                
-    def replace_fields(self, mappings):
-        self.text = self.text.format(**mappings.dict)
-                    
-    def append(self, add_text):
-        self.text += add_text
-
-    def write(self, filename):
-        try:
-            f = open(filename, 'w')
-            f.write(self.text)
-        except:
-            print "ERROR: writing to %s" % filename
-        f.close()
-
-
 def valid_hostname(hostname):
     if len(hostname) > 255:
         return False
