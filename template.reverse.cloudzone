@@ -1,0 +1,10 @@
+$TTL 86400
+@  IN SOA {dns_shortname}.{domain_name}. root.{domain_name}. (
+                2014100101 ; serial
+                7200       ; refresh
+                1800       ; retry (30 minutes)
+                604800     ; expire (1 week)
+                600        ; minimum (10 minutes)
+                )
+@       IN  NS          {dns_shortname}.{domain_name}.
+@       IN  PTR         {domain_name}.

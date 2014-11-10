@@ -1,0 +1,5 @@
+zone "{revzone}" IN {{
+        type master;
+        file "{revzone_file}";
+        allow-update {{ key "{key_name}"; }};
+}};

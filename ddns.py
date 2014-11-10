@@ -73,19 +73,6 @@ def main():
         text += "zone %s\n" % revzone
         content_PTR[net] = content(text)
 
-    # create a current list of servers and IPs that are valid for DNS updates
-    curr_servers = {}
-    for server in nova.servers.list(search_opts={'all_tenants': 1}):
-
-        if server.status != 'ACTIVE':
-            print "INFO: Server name %s has state %s" % (server.name, server.status)
-        elif server.name in curr_servers.keys():  # keys refers to the server names
-            print "WARNING: Server name %s is a duplicate" % server.name
-        elif not valid_hostname(server.name):
-            print "WARNING: Server name %s is not a valid hostname" % server.name
-        else:
-            curr_servers[server.name] = server.networks.values()
-
     # load the previous server list from a file
     if os.path.isfile('ddns_instance_state.pckl'):
         f = open('ddns_instance_state.pckl')
@@ -93,6 +80,21 @@ def main():
         f.close()
     else:
         prev_servers = []
+
+    # create a current list of servers and IPs that are valid for DNS updates
+    curr_servers = {}
+    for server in nova.servers.list(search_opts={'all_tenants': 1}):
+
+        if server.status != 'ACTIVE':
+            print "INFO: Server name %s has state %s" % (server.name, server.status)
+        elif not valid_hostname(server.name):
+            print "WARNING: Server name %s is not a valid hostname" % server.name
+        elif (server.name in prev_servers) and (server.networks.values() != prev_servers[server.name]):
+            print "WARNING: Server %s/%s is a duplicate of Server %s/%s" % (server.name, server.networks.values()[0], server.name, prev_servers[server.name][0])
+        elif server.name in curr_servers.keys():   # keys refers to the server names
+            print "WARNING: Server %s/%s is a duplicate of Server %s/%s" % (server.name, server.networks.values(), server.name, curr_servers[server.name][0])
+        else:
+            curr_servers[server.name] = server.networks.values()
 
     # delete servers in the previous list but not in the current list
     for server_name in prev_servers:
@@ -114,16 +116,16 @@ def main():
                 content_PTR[rev_net].append(
                     "update delete " + rev_dns + " 600 IN PTR " + server_name + ".\n")
 
-    # add servers in the current list that are not in the previous list
+    # Add new servers, e.g. those in the current list but not the previous one
     for server_name in curr_servers:
         if not server_name in prev_servers:
-
+ 
             # get the ip addresses, assume there is only one network, e.g. "nebula"
             ip_addresses = curr_servers[server_name]
-
+        
             # create long hostname
             server_name += "." + domain_name 
-
+        
             # update forward zone content with address of the last ip address
             forward_ip = ip_addresses[0][-1]
             content_A_rec.append(
