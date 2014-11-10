@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 #
 # Auto-generated BIND files will temporarily be put here
 if [ ! -d "gen4bind" ]; then
