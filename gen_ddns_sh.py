@@ -10,7 +10,8 @@ mappings = parms('ddns_config.yaml')
 key_name = 'cloud.ddns'
 key_value = get_ddns_key()
 
-text =  "source ./openrc.sh\n"
+text = "#!/bin/sh\n"
+text +=  "source ./openrc.sh\n"
 text += "python ddns.py\n"
 text += "nsupdate -y %s:%s -v %s\n" % (key_name, key_value, 'A_records')
 for net in mappings.value('ip_ranges'):
