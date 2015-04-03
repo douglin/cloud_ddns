@@ -45,8 +45,8 @@ PART 1 - HOW TO INSTALL
 
 Install the bind and bind-utils packages if they have not already been installed. Note that bind sets up the DNS server and bind-utils has the nsupdate tools.
 
-  [centos@ddns ~]$ sudo yum update -y
-  [centos@ddns ~]$ sudo yum install -y bind bind-utils
+  |  [centos@ddns ~]$ sudo yum update -y
+  |  [centos@ddns ~]$ sudo yum install -y bind bind-utils
 
 ### 2. Get the Cloud Admin’s OpenStack API Credentials, e.g. openrc.sh
 
@@ -87,7 +87,7 @@ Now the main executable script, ddns.sh, has been created. It will use the OpenS
 
     [centos@ddns ~]$ ./ddns.sh
 
-### 7. Add ddnn.sh to cron to update the DNS automatically
+### 7. Add ddns.sh to cron to update the DNS automatically
 
 The following example shows how to setup cron to call ddns.sh every minute.
 
